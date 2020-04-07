@@ -138,7 +138,8 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 BOARD_HAVE_SAMSUNG_WIFI          := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS := device/samsung/universal8895-common/sepolicy
+SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
