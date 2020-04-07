@@ -288,8 +288,16 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0 \
     android.hardware.wifi@1.0-impl
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
+
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/universal8895-common/universal8895-common-vendor.mk)
+
+# Allow APEX to be updated
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)

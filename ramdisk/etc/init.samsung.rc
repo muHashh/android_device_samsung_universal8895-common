@@ -1110,6 +1110,11 @@ service mobicore /vendor/bin/mcDriverDaemon -r /vendor/app/mcRegistry/FFFFFFFF00
     group system
     disabled
 
+# Apexy shit
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
+
 # [ SEC_SELINUX_PORTING_COMMON
 service auditd /system/bin/auditd -k
     class main
