@@ -20,6 +20,7 @@ LOCAL_PATH := device/samsung/universal8895-common
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Audio
+TARGET_EXCLUDES_AUDIOFX := true
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
