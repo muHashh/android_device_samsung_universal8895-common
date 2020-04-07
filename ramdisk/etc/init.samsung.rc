@@ -70,6 +70,11 @@ on fs
     setprop ro.product.model ${ro.boot.product.model}
 
 on post-fs
+
+    # avoid USB crash
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
     # mobicore
     setprop sys.mobicoredaemon.enable stopped
 
