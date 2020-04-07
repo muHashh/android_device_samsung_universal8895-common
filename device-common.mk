@@ -220,6 +220,10 @@ PRODUCT_PACKAGES += \
     init.samsungexynos8895.usb.rc \
     ueventd.samsungexynos8895.rc
 
+# FS config
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
