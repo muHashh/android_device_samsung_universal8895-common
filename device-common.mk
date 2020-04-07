@@ -298,7 +298,7 @@ PRODUCT_PACKAGES += \
 
 # APEX
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
 
 # Properties
