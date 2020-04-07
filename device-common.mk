@@ -91,7 +91,7 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.samsung
 
 # Flat device tree for boot image
-PRODUCT_PACKAGES += \
+PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
 
 # Gatekeeper
