@@ -138,6 +138,9 @@ BOARD_HAVE_SAMSUNG_WIFI          := true
 # SELinux
 BOARD_SEPOLICY_DIRS := device/samsung/universal8895-common/sepolicy
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
 # Shims
 TARGET_LD_SHIM_LIBS += \
     /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
