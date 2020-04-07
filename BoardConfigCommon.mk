@@ -19,6 +19,9 @@ LOCAL_PATH := device/samsung/universal8895-common
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
@@ -131,6 +134,9 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # MACLOADER
 BOARD_HAVE_SAMSUNG_WIFI          := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS := device/samsung/universal8895-common/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
