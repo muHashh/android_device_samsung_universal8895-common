@@ -69,6 +69,7 @@ TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CLANG_COMPILE := true
 
 # Kernel config
 TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
