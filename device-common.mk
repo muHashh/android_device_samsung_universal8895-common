@@ -16,6 +16,7 @@
 
 LOCAL_PATH := device/samsung/universal8895-common
 
+
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Audio

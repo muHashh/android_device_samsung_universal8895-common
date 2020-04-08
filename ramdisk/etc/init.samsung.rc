@@ -75,9 +75,6 @@ on post-fs
     setprop persist.adb.nonblocking_ffs 0
     setprop ro.adb.nonblocking_ffs 0
 
-    # mobicore
-    setprop sys.mobicoredaemon.enable stopped
-
     # Samsung ODE >>>
     mount tmpfs tmpfs /mnt/secure private rec
     # Samsung ODE <<<
@@ -136,13 +133,6 @@ on post-fs-data
     # sec_efs_file
     mkdir /efs/sec_efs 0775 radio system
 # ] SEC_SELINUX_PORTING_COMMON
-
-    # mobicore
-    export MC_AUTH_TOKEN_PATH /efs
-    mkdir /efs/TEE  0770 radio system
-    chmod 0660 /dev/t-base-tui
-    chown system system /dev/t-base-tui
-    start mobicore
 
     # icd
 
@@ -981,10 +971,6 @@ on boot
     chown system radio /sys/class/sensors/hidden_hole/hh_is_exist_efs
     chown system radio /sys/class/sensors/hidden_hole/hh_ext_prox_th
 	
-on nonencrypted
-    # mobicore
-    mkdir /data/vendor/mcRegistry 0775 system system
-    mkdir /data/misc/mcRegistry 0775 system system
 
 on charger
     chmod 0664 /sys/class/power_supply/battery/batt_temp_table
@@ -1042,13 +1028,12 @@ on property:vold.decrypt=trigger_restart_min_framework
     exec_start update_verifier
 
 on property:vold.decrypt=trigger_restart_framework
-    # mobicore
-    mkdir /data/vendor/mcRegistry 0775 system system
-    mkdir /data/misc/mcRegistry 0775 system system
     # A/B update verifier that marks a successful boot.
     exec_start update_verifier
 
-
+on property:vold.post_fs_data_done=1
+    chown root system /dev/kmsg
+    chmod 0660 /dev/kmsg
 
 # LPM
 service lpm /system/bin/lpm
@@ -1056,17 +1041,6 @@ service lpm /system/bin/lpm
     user root
     group system radio input
     critical
-
-# MobiCore startup
-service mobicore /vendor/bin/mcDriverDaemon -r /vendor/app/mcRegistry/FFFFFFFF000000000000000000000001.drbin -r /vendor/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /vendor/app/mcRegistry/ffffffffd00000000000000000000016.tlbin -r /vendor/app/mcRegistry/ffffffffd0000000000000000000001c.tlbin
-    class core
-    user system
-    group system
-    disabled
-
-# Apexy shit
-on property:apexd.status=ready
-    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
 
 # [ SEC_SELINUX_PORTING_COMMON
