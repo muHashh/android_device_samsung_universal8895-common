@@ -18,12 +18,6 @@ LOCAL_PATH := device/samsung/universal8895-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# FS
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs
-
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-util \
@@ -171,9 +165,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.universal8895 \
-    android.hardware.power@1.0-service \
-    android.hardware.power@1.0-impl
+    android.hardware.power@1.0-service.exynos
 
 # Permissions
 PRODUCT_COPY_FILES += \
