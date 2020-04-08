@@ -18,6 +18,12 @@ LOCAL_PATH := device/samsung/universal8895-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# FS
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-util \
@@ -44,11 +50,11 @@ PRODUCT_PACKAGES += \
     libtinycompress
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/vendor/etc/audio_policy_volumes.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/vendor/etc/a2dp_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/vendor/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/vendor/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/vendor/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -219,10 +225,6 @@ PRODUCT_PACKAGES += \
     init.samsungexynos8895.rc \
     init.samsungexynos8895.usb.rc \
     ueventd.samsungexynos8895.rc
-
-# FS config
-PRODUCT_PACKAGES += \
-    fs_config_files
 
 # RenderScript
 PRODUCT_PACKAGES += \
