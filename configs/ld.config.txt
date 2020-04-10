@@ -109,6 +109,7 @@ namespace.media.link.default.shared_libs += libmediametrics.so
 namespace.media.link.default.shared_libs += libmediandk.so
 namespace.media.link.default.shared_libs += libm.so
 namespace.media.link.default.shared_libs += libvndksupport.so
+namespace.media.link.default.shared_libs += libashmemd_client.so
 
 namespace.media.link.default.shared_libs += libclang_rt.asan-aarch64-android.so
 namespace.media.link.default.shared_libs += libclang_rt.asan-arm-android.so

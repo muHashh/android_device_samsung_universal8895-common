@@ -138,10 +138,10 @@ PRODUCT_COPY_FILES += \
 
 # keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0 \
-    android.hardware.keymaster@3.0-service \
-    android.hardware.keymaster@3.0-impl \
-    libkeymaster3device
+    android.hardware.keymaster@4.0 \
+    android.hardware.keymaster@4.0-service \
+    android.hardware.keymaster@4.0-impl \
+    libkeymaster4device
 
 # Lights
 PRODUCT_PACKAGES += \
