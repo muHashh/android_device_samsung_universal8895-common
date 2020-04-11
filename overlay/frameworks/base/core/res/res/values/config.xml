@@ -226,6 +226,9 @@ Add a comment to this line
 
     <!-- The device supports freeform window management -->
     <bool name="config_freeformWindowManagement">true</bool>
+    
+    <!-- For performance and storage reasons, limit the number of fingerprints per user -->
+    <integer name="config_fingerprintMaxTemplatesPerUser">4</integer>
 
     <!-- Flag indicating whether strict threshold is used, or lenient threshold is used,
             when evaluating RSRP for LTE antenna bar display
